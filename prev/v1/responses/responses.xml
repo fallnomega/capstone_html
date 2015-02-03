@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<applicants>
+<applicant><name>genesis</name><email>email@candidateresponse.com</email><resume_link>genesisphp</resume_link><source>Board A</source></applicant><applicant><name>carbon</name><email>email@candidateresponse.com</email><resume_link>carbon.php</resume_link><source>Board A</source></applicant><applicant><name>fearless</name><email>email@candidateresponse.com</email><resume_link>fearless.php</resume_link><source>Board A</source></applicant><applicant><name>str</name><email>email@candidateresponse.com</email><resume_link>str.php</resume_link><source>Board A</source></applicant></applicants>

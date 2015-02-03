@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Board B</title>
+<script>
+function loadXMLDoc()
+{
+var xmlhttp;
+var txt,x,i;
+var test;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    xmlDoc=xmlhttp.responseXML;
+
+    //once done, look into making this into an array and using a for loop to 
+    //print the values to the page
+
+    txt="";
+
+
+    req="";
+    x=xmlDoc.getElementsByTagName("req")[0];
+    y=x.childNodes[0]; 
+    req+=y.nodeValue;
+    txt+="<b>Requisition Number: </b>" + req + "<hr/>";
+    //document.getElementById("myDiv").innerHTML=req + "<hr/>";
+
+    name="";
+    x=xmlDoc.getElementsByTagName("name")[0];
+    y=x.childNodes[0]; 
+    name+=y.nodeValue;
+    txt+="<b>Recruiter Name: </b>" + name + "<hr/>";
+    //document.getElementById("myDiv").innerHTML=  txt;
+
+    email="";
+    x=xmlDoc.getElementsByTagName("email")[0];
+    y=x.childNodes[0]; 
+    email+=y.nodeValue;
+    txt+="<b>Recruiter Email: </b>" + email + "<hr/>";
+    //document.getElementById("myDiv").innerHTML=  txt;
+
+    position_title="";
+    x=xmlDoc.getElementsByTagName("position_title")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Position Title: </b>" + position_title + "<hr/>";
+
+    position_title="";
+    x=xmlDoc.getElementsByTagName("companyname")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Company Name: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("companydescription")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Company Description: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobcountry")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Country: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobstate")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>State: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobcity")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>City: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobzip")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Zip: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobtype")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Position Type: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobtime")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Work Type: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("compensationtype")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Compensation Type: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("currency")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Compensation Currency: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobskills")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Job Skills: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobdescription")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Job Description: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("jobbenefits")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Benefits: </b>" + position_title + "<hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("responseurl")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Apply Link: </b><a href=\"../../careersite/" + req + "BoardB.php\">Apply</a><hr/>";
+
+        position_title="";
+    x=xmlDoc.getElementsByTagName("responseemail")[0];
+    y=x.childNodes[0]; 
+    position_title+=y.nodeValue;
+    txt+="<b>Response Email: </b>" + position_title + "<hr/>";
+    document.getElementById("jobResults").innerHTML=  txt;
+    }
+    else
+    {
+        error ="<h2>No results found. Try again.</h2>";
+        document.getElementById("jobResults").innerHTML = error;
+
+    }
+  }
+  test = document.getElementById('search').value;
+  test+=".xml";
+xmlhttp.open("GET",test,true);
+xmlhttp.send();
+}
+function showDiv() {
+   document.getElementById('jobResults').style.display = "block";
+}
+</script>
+</head>
+
+<body style="background-color:#87CEEB;">
+    <header style="background:url(Q-Center-Job-Board-copy.jpg);background-size:25% ; margin-left: 50px; margin-right:50px;height:135px;width:90%;">
+
+    </header>
+<center>
+<h1><u>Job Board B</u></h1>
+<div id="query"></div>
+Requisition Number to lookup: <input type="text" id="search"/><br /><button id="submit" type="button" onclick="loadXMLDoc(); showDiv()">Retrieve Job Info</button>
+<br/><br/>
+</div>
+<div id="jobResults" style="overflow:scroll;background-color:white; margin-left:200px; margin-right:200px; height:700px; display:none;">
+
+</div>
+</center>
+
+ 
+</body>
+</html>
+
+<!--
+  Company Name  
+  Company Description 
+  Job Country 
+  Job State/Province  
+  Job City  
+  Job Zip/Postal Code 
+  Job Type Classification 
+  Job Time Classification 
+  Compensation Type 
+  Compensation Currency 
+  Job Skills Description  
+  Job Description 
+  Job Benefits Description  
+  Candidate Response URL  
+  Candidate Response Email  
+  -->

@@ -1,0 +1,27 @@
+
+<job>
+<req>1352204</req>
+<name>John Doe</name>
+<email>recruiter@emailwebsite.com</email>
+<position_title>POSITION TITLE</position_title>
+
+<companyname>Test ABC</companyname>
+<companydescription>Company Description goes here.</companydescription>
+<jobcountry>United States</jobcountry>
+<jobstate>California</jobstate>
+<jobcity>Los Angeles</jobcity>	
+<jobzip>12345</jobzip>	
+<jobtype>Permanent</jobtype>
+<jobtime>Full Time</jobtime>	
+<compensationtype>Salary</compensationtype>
+<currency>US Dollars</currency>
+<jobskills>Job Skills Description information</jobskills>	
+<jobdescription>Description of the Job here</jobdescription>
+<jobbenefits>Job Benefit information goes here</jobbenefits>
+<responseurl>http://careers.companyname.com/req/1234567890.html</responseurl>	
+<responseemail>response@emailrecruiter.com</responseemail>
+
+<boarda>No</boarda>
+<boardb>No</boardb>
+<boardc>No</boardc>
+</job>

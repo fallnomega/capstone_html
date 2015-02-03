@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<link href="style.css" rel="stylesheet"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Post a Job</title>
+
+	<script src="jquery.min.js">	</script>
+	<script src="jquery.validate.min.js"></script>
+	<script src="form.js"></script>
+
+<script language="JavaScript" type="text/JavaScript">
+function unique_job_number()
+{
+    document.post_form.req.value = Math.round(999999/Math.random());
+}
+
+</script>
+</head>
+<body>
+<div class="page">
+<header class="banner">
+	<img class="company_logo" alt="company logo" src="company-logo.png" /></header>
+</div>
+
+<nav class="nav-bar">
+<ul style="width: 144px">
+<li><a href="index.html">Home</a></li>
+<li><a href="Boards/.index.php">Jobs Posted</a></li>
+<li><a href="post.html">Post a Job</a></li>
+<li>Candidate Responses</li>
+<li>Sourcing</li>
+</ul>
+</nav>
+
+<div class="content reg_form">
+<form id="post_form" name="post_form" method="POST" action="submit.php">
+<label id="Req">Requisition Number</label> <input type="text" name="req" id="req" />
+<button name="unique_id" value="Unique Id" onClick="unique_job_number();return false"
+    accesskey="u">Unique Id</button><br/>
+<label id="Recruiter_Name">Recruiter Name</label> <input class="text" id ="recruiter_name" name="recruiter_name" type="text" value="John Doe" /><br/>
+<label id="Recruiter_Email">Recruiter Email</label> <input class="text" name="recruiter_email" id="recruiter_email" type="text" value="recruiter@emailwebsite.com"/><br/>
+<label id="Position_Title">Position_Title</label> <input class="text" name="position_title" type="text" id="position_title" value="POSITION TITLE"/><br/>
+<hr/>
+Select a job board to post to: <br />
+<input name="board[]" id = "boarda"  type="checkbox" value="1">Board A </input><br />
+<input name="board[]" id = "boardb"type="checkbox" value="2">Board B </input><br />
+<input name="board[]" id = "boardc"type="checkbox" value="3">Board C </input><br />
+
+
+<hr/>
+	<input name="Submit" id="Submit" type="submit" value="Submit" />
+</form>
+
+</div>
+
+<!--FOOTER -->
+<footer class="footer">
+		<br />
+		
+	</nav>
+</footer>
+
+			
+</body>
+
+</html>
