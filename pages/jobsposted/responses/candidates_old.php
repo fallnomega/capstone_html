@@ -40,7 +40,7 @@ $_SESSION['timeout'] = time();
 
 <script src="../../scripts/jquery.min.js">    </script>
 <script src="../../scripts/respond.js"></script>
-
+<script type="text/javascript" src="../../scripts/jquery.tablesorter.js"></script>
 </head>
 
 <body>
@@ -91,32 +91,41 @@ xmlhttp.open("GET","responses.xml",false);
 xmlhttp.send();
 xmlDoc=xmlhttp.responseXML;
 
-document.write("<table><tr><th>Name</th><th>Applying for</th><th>Email</th><th>Resume Link</th><th>Source</th><th>Rank</th></tr>");
+document.write("<table id=\"myTable\" class=\"tablesorter\"><thead><tr><th>Name .arrow here.</th><th>Applying for .arrow here.</th><th>Email .arrow here.</th><th>Resume Link .arrow here.</th><th>Source .arrow here.</th><th>Rank .arrow here.</th></tr></thead><tbody>");
 var x=xmlDoc.getElementsByTagName("applicant");
-   var forJob= gup('varname');
+var forJob= gup('varname');
 
-for (i=0;i<x.length;i++)
-  {
-    if(forJob==x[i].getElementsByTagName("req")[0].childNodes[0].nodeValue+".xml"){
-
-
-  document.write("<tr><td>");
-  document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
-  document.write("</td><td>");
-  var testing= gup('varname');
-  document.write(testing);
-  document.write("</td><td>");
-  document.write(x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue);
-  document.write("</td><td><a href=\"");
-  document.write(x[i].getElementsByTagName("resume_link")[0].childNodes[0].nodeValue);
-  document.write("\">Resume</a></td><td>");
-  document.write(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
-  document.write("</td><td>");
-  document.write(x[i].getElementsByTagName("rank")[0].childNodes[0].nodeValue);
-  document.write("</td></tr>");
+for (i=0;i<x.length;i++){
+  if(forJob==x[i].getElementsByTagName("req")[0].childNodes[0].nodeValue+".xml"){
+    document.write("<tr><td>");
+    document.write(x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue);
+    document.write("</td><td>");
+    var testing= gup('varname');
+    document.write(testing);
+    document.write("</td><td>");
+    document.write(x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue);
+    document.write("</td><td><a href=\"");
+    document.write(x[i].getElementsByTagName("resume_link")[0].childNodes[0].nodeValue);
+    document.write("\">Resume</a></td><td>");
+    document.write(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
+    document.write("</td><td>");
+    document.write(x[i].getElementsByTagName("rank")[0].childNodes[0].nodeValue);
+    document.write("</td></tr>");
   }
-  }
-document.write("</table>");
+}
+document.write("</tbody></table>");
+
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+);
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter( {sortList: [[0,5], [0,0]]} ); 
+    } 
+);
+
 </script>
 </div>
 

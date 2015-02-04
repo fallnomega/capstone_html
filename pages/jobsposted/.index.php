@@ -206,8 +206,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu ante euismod tort
       ?>
       </tbody>
     </table>
+    <form action="../scripts/deleteReq.php" method="post">
+    To delete a job posting, please entere the requisition number: <input type="text" id="deletion" name="deletion"/>   <input type="submit" value="Delete"/>
+  </form><br/><br/><br/>
   
-    <h2><?php print("<a href='../index.php'>Back to Home page</a>"); ?></h2>
+    <h2><a href='../index.php'>Back to Home page</a></h2>
     
   </div>
   </div>
