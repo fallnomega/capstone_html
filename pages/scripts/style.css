@@ -1,0 +1,127 @@
+﻿.company_logo{
+	width:100%;
+	height:100px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	border:thick;
+	border-color:black;
+	border-style:double;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+/*.nav-bar{
+background-color:#4D94FF;
+
+
+height:79%;
+float: left;
+	border:thick;
+	border-color:black;
+	border-style:double;
+	border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+border-bottom-right-radius: 6px;
+margin:0;
+padding:0;
+margin-right: 10px;
+
+
+	
+	
+}*/
+
+.content{
+	font-family: Arial, Helvetica, sans-serif;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 60px;
+	
+	border-color:black;
+	border-style:groove;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+  	padding-bottom: 4px;
+  	padding-top: 4px;
+  	overflow:auto;
+  	background: url('images/bg.png');
+
+
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+li{
+			border:thick;
+	border-color:black;
+	border-style:groove;
+	border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+border-bottom-right-radius: 6px;
+}
+
+.text{
+	margin-left:50px;
+	
+	
+}
+.footer {
+	  background: #222222;
+  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
+
+	border:0px;
+	border-style:groove;
+	margin-top: 10px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	position: fixed;
+	bottom:0;
+	width:93%;
+	padding-bottom: 40px;
+
+
+}
+
+
+
+#post-form label.error {
+  color:#FB3A3A;
+  font-weight:bold;
+}
+body,html{
+	height:100%;
+}
+
+
+
+#navs:link { color: black; text-decoration: none }
+#navs:active { color: black; text-decoration: none }
+#navs:visited { color: black; text-decoration: none }
+#navs:hover{color:black; font-weight: bold;}
+
+
+li:hover{color:black;background: #D8D8D8;}
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:1300px;
+}

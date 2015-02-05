@@ -1,8 +1,13 @@
 <?php
 session_start();
+
+
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
    <meta charset='utf-8'>
@@ -17,8 +22,7 @@ session_start();
    <div id="wrapper">
 <div class="page">
 <header class="banner">
-   <img class="company_logo" alt="company logo" src="scripts/images/company-logo.png" />
-</header>
+   <img class="company_logo" alt="company logo" src="scripts/images/company-logo.png" /></header>
 </div>
 <?php echo "Signed in as: ". $_SESSION['user_name']; ?>
 <div id='cssmenu'>
@@ -57,8 +61,9 @@ Phasellus pulvinar ut sapien eget iaculis. Fusce eleifend tortor at tortor eleif
 </p>
 </div>
 <footer class="footer" id="footer">
-<br/>
-
+      <br />
+      
+   </nav>
 </footer>
 </div>
 </body>

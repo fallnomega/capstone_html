@@ -1,71 +1,53 @@
 ﻿<?php
 session_start();
-$timeout=600;//number of seconds until it times out
-
-//check if timeout field exists
-if(isset($_SESSION['timeout'])){
-  //see if the number of seconds since the last
-  //visit is larger than the time out period.
-  $duration = time() - (int) $_SESSION['timeout'];
-  if($duration > $timeout){
-    //destroy the session and point to login
-    $_SESSION['user_name'] = "Unknown";
-    session_destroy();
-
-    echo "<a href='../login.php'>Log back in</a>";
-  }
-}
-
-$_SESSION['timeout'] = time();
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-<link href="../../scripts/style.css" rel="stylesheet"/>
-<link href=".style2.css" rel="stylesheet"/>
-<style type="text/css">
-.auto-style1 {
-	width: 100%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	border: thick double black;
-}
-</style>
-<meta content="en-us" http-equiv="Content-Language" /><meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Candidate Responses</title>
+   <meta charset='utf-8'>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="../../scripts/style.css" rel="stylesheet"/>
+   <link rel="stylesheet" href="../../scripts/nav-styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript">
+   </script>
+   <script src="../../scripts/jquery.min.js"></script>
+   <script src="../../scripts/respond.js"></script>
+   <script src="../../scripts/nav-script.js"></script>
+   <script type="text/javascript" src="../../scripts/jquery.tablesorter.js"></script>
+   <link href=".style2.css" rel="stylesheet"/>
+   <style type="text/css">
+      .auto-style1 {
+      width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: thick double black;
+   }
+   </style>
+   <title>ATS: Candidate Responses</title>
 
-<script src="../../scripts/jquery.min.js">    </script>
-<script src="../../scripts/respond.js"></script>
-<script type="text/javascript" src="../../scripts/jquery.tablesorter.js"></script>
 </head>
 
 <body>
+  <div id="wrapper">
 <div class="page">
 <header class="banner">
 	<img class="company_logo" alt="company logo" src="../company-logo.png" /></header>
 </div>
+<?php echo "Signed in as: ". $_SESSION['user_name']; ?>
+<div id='cssmenu'>
+<ul>
+   <li class='last'><a href='../../index.php'><span>Home</span></a></li>
+   <li class='last'><a href='../../post.php'><span>Post a Position</span></a></li>
+   <li class='last'><a href='../.index.php'><span>Jobs Posted</span></a></li>
+   <li class='active'><a href='../responses/candidates.php'><span>Candidate Responses</span></a></li>
 
-<nav class="nav-bar">
-<ul style="width: 144px">
-  <?php echo "Signed in as: ". $_SESSION['user_name']; ?>
-<li><a href="../../index.php">Home</a></li>
-<li id="navs">
-  <a id="navs" href="../.index.php">Jobs Posted</a>
-  <ul>
-    <li><a href="candidates.php">Candidate Responses</a></li>
-  </ul>
-</li>
-<li><a href="../../post.php">Post a Job</a></li>
-
-<li>Sourcing</li>
-<li id="navs" ><a href="../../../login.php">Log in</a></li>
+   <li class='last'><a href='../../../login.php'><span>Log in</span></a></li>
+   <li class='last'><a href='#'><span>Placeholder</span></a></li>
+   <li class='last'><a href='#'><span>Placeholder</span></a></li>
 </ul>
-</nav>
-
+</div>
 <div class="applied content" id="applied">
 
 <!--fopen used incase the file does not exist. creates file names responses.xml if it doesnt exists -->
@@ -91,7 +73,7 @@ xmlhttp.open("GET","responses.xml",false);
 xmlhttp.send();
 xmlDoc=xmlhttp.responseXML;
 
-document.write("<table id=\"myTable\" class=\"tablesorter\"><thead><tr><th>Name .arrow here.</th><th>Applying for .arrow here.</th><th>Email .arrow here.</th><th>Resume Link .arrow here.</th><th>Source .arrow here.</th><th>Rank .arrow here.</th></tr></thead><tbody>");
+document.write("<table id=\"myTable\" class=\"tablesorter\"><thead><tr><th>Name<small>  sort</small></th><th>Applying for</th><th>Email</th><th>Resume Link</th><th>Source<small>  sort</small></th><th>Rank<small>  sort</small></th></tr></thead><tbody>");
 var x=xmlDoc.getElementsByTagName("applicant");
 var forJob= gup('varname');
 
@@ -129,11 +111,10 @@ $(document).ready(function()
 </script>
 </div>
 
-<footer class="footer">
-		<br />
-		
-	</nav>
-</footer>
-</body>
+<footer class="footer" id="footer">
+<br/>
 
-</html>
+</footer>
+</div>
+</body>
+<html>

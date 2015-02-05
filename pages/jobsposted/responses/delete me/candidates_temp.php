@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 ?>
 
@@ -36,10 +36,10 @@ session_start();
 <?php echo "Signed in as: ". $_SESSION['user_name']; ?>
 <div id='cssmenu'>
 <ul>
-   <li class='last'><a href='../../index.php'><span>Home</span></a></li>
+   <li class='active'><a href='../../index.php'><span>Home</span></a></li>
    <li class='last'><a href='../../post.php'><span>Post a Position</span></a></li>
-   <li class='last'><a href='../.index.php'><span>Jobs Posted</span></a></li>
-   <li class='active'><a href='../responses/candidates.php'><span>Candidate Responses</span></a></li>
+   <li><a href='../.index.php'><span>Jobs Posted</span></a></li>
+   <li><a href='../responses/candidates.php'><span>Candidate Responses</span></a></li>
 
    <li class='last'><a href='../../../login.php'><span>Log in</span></a></li>
    <li class='last'><a href='#'><span>Placeholder</span></a></li>
@@ -167,8 +167,8 @@ session_start();
           print("
           <tr class='$class'>
             <td><a href='candidates_old.php?varname=$name'>$name</a></td>
-            <td><a href='candidates_old.php?varname=$name'>$recruiterName</a></td>
-            <td sorttable_customkey='$timekey'><a href='candidates_old.php?varname=$name'>$modtime</a></td>
+            <td><a href='../$namehref'>$recruiterName</a></td>
+            <td sorttable_customkey='$timekey'><a href='../$namehref'>$modtime</a></td>
           </tr>");
           }
         }
