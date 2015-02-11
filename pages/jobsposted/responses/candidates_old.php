@@ -35,7 +35,7 @@ session_start();
 <header class="banner">
 	<img class="company_logo" alt="company logo" src="../company-logo.png" /></header>
 </div>
-<?php echo "Signed in as: ". $_SESSION['user_name']; ?>
+<?php echo "<div style='text-align:right; color:white;'><small>Signed in as: ". $_SESSION['user_name']."</small></div>"; ?>
 <div id='cssmenu'>
 <ul>
    <li class='last'><a href='../../index.php'><span>Home</span></a></li>
@@ -44,8 +44,14 @@ session_start();
    <li class='active'><a href='../responses/candidates.php'><span>Candidate Responses</span></a></li>
 
    <li class='last'><a href='../../../login.php'><span>Log in</span></a></li>
-   <li class='last'><a href='#'><span>Placeholder</span></a></li>
-   <li class='last'><a href='#'><span>Placeholder</span></a></li>
+      <li class='last'><a href='#'><span>Boards</span></a>
+    <ul>
+      <li class='last fillme'><a href="../../Boards/BoardA/boarda.html"><span>Board A</span></a></li>
+      <li class='last  fillme'><a href="../../Boards/BoardB/boardb.html"><span>Board B</span></a></li>
+      <li class='last  fillme'><a href="../../Boards/BoardC/boardc.html"><span>Board C</span></a></li>
+    </ul>
+   </li>
+   <li class='last'><a href='../../reports/reporting.php'><span>Reports</span></a></li>
 </ul>
 </div>
 <div class="applied content" id="applied">
@@ -109,6 +115,9 @@ $(document).ready(function()
 );
 
 </script>
+<center>
+  <a href='../responses/candidates.php'/><input type="button" value="Back"/></a>
+  </center>
 </div>
 
 <footer class="footer" id="footer">

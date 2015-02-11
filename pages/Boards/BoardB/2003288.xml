@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../scripts/jobs.xsl"?>
+
 <job>
-<req>9876</req>
-<name>fallnomega</name>
+<req>2003288</req>
+<name>recruiter john</name>
 <email>recruiter@emailwebsite.com</email>
 <position_title>POSITION TITLE</position_title>
-
 <companyname>Test ABC</companyname>
 <companydescription>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lobortis dolor at nibh condimentum, eget finibus diam pharetra. Cras vehicula, velit ut pellentesque consectetur, augue dui faucibus orci, ut condimentum enim risus sit amet nibh. In ac sollicitudin nunc. Fusce at dolor dictum, fringilla mi a, tincidunt est. Fusce facilisis ante sed bibendum tristique. Pellentesque at mollis lacus. Sed finibus pretium augue et bibendum. Nulla facilisi. Curabitur sollicitudin tellus lectus, ac dictum ante lacinia ac. Vivamus cursus sed justo at fringilla. Nam iaculis magna nec urna vestibulum, sagittis blandit nisl semper. </companydescription>
 <jobcountry>United States</jobcountry>
@@ -95,9 +93,4 @@ Qualifications
     Employee recognition days with community service and activities</jobbenefits>
 <responseurl>http://careers.companyname.com/req/1234567890.html</responseurl>	
 <responseemail>response@emailrecruiter.com</responseemail>
-
-<boarda>Yes</boarda>
-<boardb>No</boardb>
-<boardc>No</boardc>
-<keywords>hello world</keywords>
 </job>

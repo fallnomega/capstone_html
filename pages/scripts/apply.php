@@ -62,4 +62,27 @@ $cand
 	$applicant->addChild("rank",$rank);
 	$sxe->asXML("../jobsposted/responses/responses.xml");
 
+	$servername = "localhost";
+    $username = "fallnomega";
+    $password="abc123";
+    $dbname = "jobs";
+
+    //create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    //check connection
+    if($conn->connect_error){
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+	$updatesql = "UPDATE posted SET responses = responses + 1 WHERE req = '".$jobreq. "'";
+	if ($conn->query($updatesql) === TRUE) {
+    echo "Record updated successfully";
+	} 
+	else {
+    	echo "Error updating record: " . $conn->error;
+	}
+
+	$conn->close();	
+
 ?>

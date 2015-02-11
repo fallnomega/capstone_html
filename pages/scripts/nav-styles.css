@@ -12,6 +12,18 @@
   position: relative;
   font-family: Capriola, Helvetica, sans-serif;
 }
+  #cssmenu ul li ul{
+        display: none;
+
+
+    }
+      #cssmenu ul li:hover ul{
+        display: block; /* display the dropdown */
+        position: absolute;
+        visibility:visible;
+     
+
+    }
 #cssmenu {
   width: auto;
   height: 59px;
@@ -38,6 +50,7 @@
   width: 100%;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  background: #0f71ba;
 }
 #cssmenu #bg-one {
   height: 10px;
@@ -47,6 +60,7 @@
   height: 59px;
   z-index: 2;
   background: url('images/bg.png');
+
 }
 #cssmenu #bg-three {
   bottom: 4px;
@@ -68,6 +82,7 @@
 }
 #cssmenu ul {
   height: 59px;
+
 }
 #cssmenu ul li {
   float: left;
@@ -84,6 +99,7 @@
   color: #eeeeee;
   font-size: 15px;
   text-decoration: none;
+
 }
 #cssmenu ul li:first-child,
 #cssmenu ul li:first-child > a {
@@ -91,7 +107,7 @@
 }
 #cssmenu ul li:hover,
 #cssmenu ul li.active {
-  background: #0f71ba;
+
   background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
   background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
@@ -103,4 +119,14 @@
 #cssmenu ul li.active > a {
   background: url('images/bg.png');
   color: #ffffff;
+
+}
+.fillme{
+    background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
+  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+
 }

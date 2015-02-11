@@ -21,7 +21,7 @@ session_start();
    <img class="company_logo" alt="company logo" src="../scripts/images/company-logo.png" />
 </header>
 </div>
-<?php echo "Signed in as: ". $_SESSION['user_name']; ?>
+<?php echo "<div style='text-align:right; color:white;'><small>Signed in as: ". $_SESSION['user_name']."</small></div>"; ?>
 <div id='cssmenu'>
 <ul>
    <li class='last'><a href='../index.php'><span>Home</span></a></li>
@@ -30,8 +30,14 @@ session_start();
    <li class='last'><a href='responses/candidates.php'><span>Candidate Responses</span></a></li>
 
    <li class='last'><a href='../../login.php'><span>Log in</span></a></li>
-   <li class='last'><a href='#'><span>Placeholder</span></a></li>
-   <li class='last'><a href='#'><span>Placeholder</span></a></li>
+      <li class='last'><a href='#'><span>Boards</span></a>
+    <ul>
+      <li class='last fillme'><a href="../Boards/BoardA/boarda.html"><span>Board A</span></a></li>
+      <li class='last  fillme'><a href="../Boards/BoardB/boardb.html"><span>Board B</span></a></li>
+      <li class='last  fillme'><a href="../Boards/BoardC/boardc.html"><span>Board C</span></a></li>
+    </ul>
+   </li>
+   <li class='last'><a href='../reports/reporting.php'><span>Reports</span></a></li>
 </ul>
 </div>
 
@@ -43,130 +49,55 @@ session_start();
     <table class="sortable">
       <thead>
         <tr>
-          <th>Filename</th>
-          <th>Type</th>
-          <th>Size <small>(bytes)</small></th>
-          <th>Posted by</th>
-          <th>Date Modified</th>
+          <th><center>ID</center></th>
+          <th><center>Requisition Number</center></th>
+          <th><center>Posted by</center></th>
+          <th><center>Responses</center></th>
+          <th><center>Date Posted</center></th>
         </tr>
       </thead>
       <tbody>
       <?php
-        // Opens directory
-      $dire = "jobs/";
-        $myDirectory=opendir($dire);
-        
-        // Gets each entry
-        while($entryName=readdir($myDirectory)) {
-          $dirArray[]=$entryName;
-        }
-        
-        // Finds extensions of files
-        function findexts ($filename) {
-          $filename=strtolower($filename);
-          $exts=split("[/\\.]", $filename);
-          $n=count($exts)-1;
-          $exts=$exts[$n];
-          return $exts;
-        }
-        
-        // Closes directory
-        closedir($myDirectory);
-        
-        // Counts elements in array
-        $indexCount=count($dirArray);
-        
-        // Sorts files
-        sort($dirArray);
-        
-        // Loops through the array of files
-        for($index=0; $index < $indexCount; $index++) {
-        
-          // Allows ./?hidden to show hidden files
-          if($_SERVER['QUERY_STRING']=="hidden")
-          {$hide="";
-          $ahref="./";
-          $atext="Hide";}
-          else
-          {$hide=".";
-          $ahref="./?hidden";
-          $atext="Show";}
-          if(substr("$dirArray[$index]", 0, 1) != $hide) {
-          
-          // Gets File Names
-          $name=$dirArray[$index];
-          $namehref="jobs/".$dirArray[$index];
-          
-          // Gets Extensions 
-          $extn=findexts($dirArray[$index]); 
-          
-          // Gets file size 
-          $size=number_format(filesize("jobs/".$dirArray[$index]));
-          
-          // Gets Date Modified Data
-          $modtime=date("M j Y g:i A", filemtime("jobs/".$dirArray[$index]));
-          $timekey=date("YmdHis", filemtime("jobs/".$dirArray[$index]));
+      //values for connecting to sql db
+      $servername = "localhost";
+      $username = "fallnomega";
+      $password="abc123";
+      $dbname = "jobs";
 
-          //get recruiter name
-          $filezname = "responses/responses.xml";
-          if(file_exists($filezname))
-          {
-            $xml = simplexml_load_file("jobs/".$name) or die("Error:Cannot find file");
-            $recruiterName= $xml->name;
-          }
-          else
-          {
-            $recruiterName = "N/A";
-            echo "File not found!";
-          }
+      //create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
 
-          
-          // Prettifies File Types, add more to suit your needs.
-          switch ($extn){
-            case "png": $extn="PNG Image"; break;
-            case "jpg": $extn="JPEG Image"; break;
-            case "svg": $extn="SVG Image"; break;
-            case "gif": $extn="GIF Image"; break;
-            case "ico": $extn="Windows Icon"; break;
-            
-            case "txt": $extn="Text File"; break;
-            case "log": $extn="Log File"; break;
-            case "htm": $extn="HTML File"; break;
-            case "php": $extn="PHP Script"; break;
-            case "js": $extn="Javascript"; break;
-            case "css": $extn="Stylesheet"; break;
-            case "pdf": $extn="PDF Document"; break;
-            
-            case "zip": $extn="ZIP Archive"; break;
-            case "bak": $extn="Backup File"; break;
-            
-            default: $extn=strtoupper($extn)." File"; break;
-          }
-          
-          // Separates directories
-          if(is_dir($dirArray[$index])) {
-            $extn="&lt;Directory&gt;"; 
-            $size="&lt;Directory&gt;"; 
-            $class="dir";
-          } else {
-            $class="file";
-          }
-          
-          // Cleans up . and .. directories 
-          if($name=="."){$name=". (Current Directory)"; $extn="&lt;System Dir&gt;";}
-          if($name==".."){$name=".. (Parent Directory)"; $extn="&lt;System Dir&gt;";}
-          
-          // Print 'em
+      //check connection
+      if($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "SELECT id, name, req, post_date, responses FROM posted";
+      $result = $conn->query($sql);
+
+      if($result->num_rows > 0){
+        //output data of each row
+        while($row = $result->fetch_assoc()){
+          $id = $row["id"];
+          $req = $row["req"];
+          $name = $row["name"];
+          $responses = $row["responses"];
+          $postdate = $row["post_date"];
+          $namehref="jobs/".$req.".xml";
           print("
-          <tr class='$class'>
-            <td><a href='./$namehref'>$name</a></td>
-            <td><a href='./$namehref'>$extn</a></td>
-            <td><a href='./$namehref'>$size</a></td>
-            <td><a href='./$namehref'>$recruiterName</a></td>
-            <td sorttable_customkey='$timekey'><a href='./$namehref'>$modtime</a></td>
+          <tr>
+            <td><center><a href='./$namehref'>$id</a></center></td>
+            <td><center><a href='./$namehref'>$req</a></center></td>
+            <td><center><a href='./$namehref'>$name</a></center></td>
+            <td><center><a href='./$namehref'>$responses</a></center></td>
+            <td><center><a href='./$namehref'>$postdate</a></center></td>
           </tr>");
-          }
         }
+      }
+      else{
+        echo "0 results";
+      }
+      $conn->close();
       ?>
       </tbody>
     </table>

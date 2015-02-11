@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../scripts/jobs.xsl"?>
 <job>
-<req>9876</req>
-<name>fallnomega</name>
+<req>1106337</req>
+<name>camellia</name>
 <email>recruiter@emailwebsite.com</email>
 <position_title>POSITION TITLE</position_title>
 
@@ -96,8 +96,8 @@ Qualifications
 <responseurl>http://careers.companyname.com/req/1234567890.html</responseurl>	
 <responseemail>response@emailrecruiter.com</responseemail>
 
-<boarda>Yes</boarda>
+<boarda>No</boarda>
 <boardb>No</boardb>
-<boardc>No</boardc>
-<keywords>hello world</keywords>
+<boardc>Yes</boardc>
+<keywords>hi there key word</keywords>
 </job>

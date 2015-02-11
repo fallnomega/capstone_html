@@ -19,8 +19,12 @@ $filename = $_POST['jreq'];
  $compensationtype = $_POST['jcompensation'];
  $currency = $_POST['jcurrency']; 
  $jobskills = $_POST['jjobskills'];
+ $jobskills =  preg_replace('/[^a-zA-Z0-9\s]/', '', strip_tags(html_entity_decode($jobskills)));
+ // $clear = preg_replace('/[^a-zA-Z0-9\s]/', '', strip_tags(html_entity_decode($des)));
  $jobdescription = $_POST['jjobdescription'];
+  $jobdescription =  preg_replace('/[^a-zA-Z0-9\s]/', '', strip_tags(html_entity_decode($jobdescription)));
  $jobbenefits = $_POST['jjobbenefits'];
+  $jobbenefits =  preg_replace('/[^a-zA-Z0-9\s]/', '', strip_tags(html_entity_decode($jobbenefits)));
  $responseurl = $_POST['jresponseurl'];
  $responseemail = $_POST['jresponseemail'];
  $keywords = $_POST['keyword'];
@@ -30,9 +34,44 @@ $filename = $_POST['jreq'];
  $boardb = $_POST['boardb'];
  $boardc = $_POST['boardc'];
 
+//sql time
+
+$servername = "localhost";
+$username = "fallnomega";
+$password = "abc123";
+$dbname = "jobs";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+ $sql = "INSERT INTO posted (name, req, email, position_title, companyname, companydescription, jobcountry, jobstate, jobcity, jobzip, jobtype, jobtime, compensationtype, currency, jobskills, jobdescription, jobbenefits, responseurl, responseemail, keywords, boarda, boardb, boardc)
+ VALUES ('$name', '$req', '$email', '$position_title', '$companyname',  '$companydescription', '$jobcountry', '$jobstate', '$jobcity', '$jobzip', '$jobtype', '$jobtime', '$compensationtype', '$currency', '$jobskills', '$jobdescription', '$jobbenefits', '$responseurl', '$responseemail', '$keywords', '$boarda', '$boardb', '$boardc')";
+
+
+// $sql = "INSERT INTO posted (name, req, email, position_title, companyname, companydescription, jobcountry, jobstate, jobcity, jobzip, jobtype, jobtime, compensationtype, currency, jobskills)
+// VALUES ('$name', '$req', '$email', '$position_title', '$companyname',  '$companydescription', '$jobcountry', '$jobstate', '$jobcity', '$jobzip', '$jobtype', '$jobtime', '$compensationtype', '$currency', '$jobskills')";
+
+
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+
+
+
 //create file locally to track jobs posted.
 $myfile = fopen("../jobsposted/jobs/".$filename.".xml", "w") or die("Unable to open file!");
-$post = "
+$post = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<?xml-stylesheet type=\"text/xsl\" href=\"../../scripts/jobs.xsl\"?>
 <job>
 <req>$req</req>
 <name>$name</name>
@@ -115,7 +154,7 @@ $template="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"ht
 <body>
 <div class=\"page\">
 <header class=\"banner\">
-	<img class=\"company_logo\" alt=\"company logo\" src=\"../company-logo.png\" /></header>
+	<img class=\"company_logo\" alt=\"company logo\" src=\"../scripts/images/company-logo.png\" /></header>
 </div>
 
 
@@ -228,7 +267,7 @@ $template="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"ht
 <body>
 <div class=\"page\">
 <header class=\"banner\">
-	<img class=\"company_logo\" alt=\"company logo\" src=\"../company-logo.png\" /></header>
+	<img class=\"company_logo\" alt=\"company logo\" src=\"../scripts/images/company-logo.png\" /></header>
 </div>
 
 
@@ -339,7 +378,7 @@ $template="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"ht
 <body>
 <div class=\"page\">
 <header class=\"banner\">
-	<img class=\"company_logo\" alt=\"company logo\" src=\"../company-logo.png\" /></header>
+	<img class=\"company_logo\" alt=\"company logo\" src=\"../scripts/images/company-logo.png\" /></header>
 </div>
 
 

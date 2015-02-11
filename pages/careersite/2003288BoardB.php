@@ -4,7 +4,7 @@
 <head>
 <link href="../scripts/style.css" rel="stylesheet"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title id="title">9876: POSITION TITLE</title>
+<title id="title">2003288: POSITION TITLE</title>
 
 	<script src="../scripts/jquery.min.js">	</script>
 	<script src="../scripts/jquery.validate.min.js"></script>
@@ -23,7 +23,7 @@
 <div class="content" id="content" name="jobcontent">
 
 
-<label id="Req"><u><b>Requisition Number</b></u></label><p>9876</p>
+<label id="Req"><u><b>Requisition Number</b></u></label><p>2003288</p>
 
 
 <label id="Position_Title"><u><b>Position Title</b></u></label><p>POSITION TITLE</p>
@@ -128,14 +128,12 @@ Qualifications
     Casual dress environment
     Memberships to area professional civic and social organizations like OVConnect
     Employee recognition days with community service and activities</p>
-<form action="../jobsposted/responses/BoardA/response.php" method="post">
-<input type="hidden" name="appreq" value="9876"/>
-<input type="hidden" name="boardsrc" value="BoardA"/>
+<form action="../jobsposted/responses/BoardB/response.php" method="post">
+<input type="hidden" name="appreq" value="2003288"/>
+<input type="hidden" name="boardsrc" value="BoardB"/>
     <input type="submit" value="Apply">
 </form>
 </div>
-
-
 
 <!--FOOTER -->
 <footer class="footer">

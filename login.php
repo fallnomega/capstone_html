@@ -19,6 +19,8 @@ $_SESSION['timeout'] = time();
 
 
 
+
+
 /**
  * Class OneFileLoginApplication
  *
@@ -374,12 +376,26 @@ class OneFileLoginApplication
         if ($this->feedback) {
             echo $this->feedback . "<br/><br/>";
         }
+                echo '<!DOCTYPE html>';
+        echo '<html>';
+        echo '<head>';
+        echo '<meta charset="UTF-8">';
+        echo '<title>ATS: Success</title>';
+        echo '<link rel=\'stylesheet\' href=\'http://codepen.io/assets/libs/fullpage/jquery-ui.css\'>';
+        echo '<link rel="stylesheet" href="style.css" media="screen" type="text/css" />';
+        echo '</head>';
+        echo '<body>';
+        echo '<div class="login-card">';
 
         echo 'Hello ' . $_SESSION['user_name'] . ', you are logged in.<br/><br/>';
         echo 'Proceed to Career Site <a href="pages/index.php">
    <input type="button" value="Proceed" />
 </a>';
         echo '<br/><br/><a href="' . $_SERVER['SCRIPT_NAME'] . '?action=logout">Log out</a>';
+            
+        echo '</div>';
+        echo '</body>';
+        echo '</html>';
     }
 
     /**
@@ -392,8 +408,18 @@ class OneFileLoginApplication
         if ($this->feedback) {
             echo $this->feedback . "<br/><br/>";
         }
+        echo '<!DOCTYPE html>';
+        echo '<html>';
+        echo '<head>';
+        echo '<meta charset="UTF-8">';
+        echo '<title>ATS: Login</title>';
+        echo '<link rel=\'stylesheet\' href=\'http://codepen.io/assets/libs/fullpage/jquery-ui.css\'>';
+        echo '<link rel="stylesheet" href="style.css" media="screen" type="text/css" />';
+        echo '</head>';
+        echo '<center><h2>Applicant Tracking System Login</h2></center>';
+        echo '<body>';
+        echo '<div class="login-card">';
 
-        echo '<h2>Login</h2>';
 
         echo '<form method="post" action="' . $_SERVER['SCRIPT_NAME'] . '" name="loginform">';
         echo '<label for="login_input_username">Username (or email)</label> ';
@@ -404,6 +430,10 @@ class OneFileLoginApplication
         echo '</form>';
 
         echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '?action=register">Register new account</a>';
+        echo '</div>';
+        echo '</body>';
+        echo '</html>';
+
     }
 
     /**
@@ -417,14 +447,24 @@ class OneFileLoginApplication
             echo $this->feedback . "<br/><br/>";
         }
 
-        echo '<h2>Registration</h2>';
+                echo '<!DOCTYPE html>';
+        echo '<html>';
+        echo '<head>';
+        echo '<meta charset="UTF-8">';
+        echo '<title>ATS: Registration</title>';
+        echo '<link rel=\'stylesheet\' href=\'http://codepen.io/assets/libs/fullpage/jquery-ui.css\'>';
+        echo '<link rel="stylesheet" href="style.css" media="screen" type="text/css" />';
+        echo '</head>';
+        echo '<center><h2>ATS Registration</h2></center>';
+        echo '<body>';
+        echo '<div class="login-card">';
 
         echo '<form method="post" action="' . $_SERVER['SCRIPT_NAME'] . '?action=register" name="registerform">';
         echo '<label for="login_input_username">Username (only letters and numbers, 2 to 64 characters)</label>';
         echo '<input id="login_input_username" type="text" pattern="[a-zA-Z0-9]{2,64}" name="user_name" required />';
-        echo '<label for="login_input_email">User\'s email</label>';
+        echo '<label for="login_input_email">User\'s email</label> <br/>';
         echo '<input id="login_input_email" type="email" name="user_email" required />';
-        echo '<label for="login_input_password_new">Password (min. 6 characters)</label>';
+        echo '<label for="login_input_password_new"><br/>Password (min. 6 characters)</label>';
         echo '<input id="login_input_password_new" class="login_input" type="password" name="user_password_new" pattern=".{6,}" required autocomplete="off" />';
         echo '<label for="login_input_password_repeat">Repeat password</label>';
         echo '<input id="login_input_password_repeat" class="login_input" type="password" name="user_password_repeat" pattern=".{6,}" required autocomplete="off" />';
@@ -432,6 +472,9 @@ class OneFileLoginApplication
         echo '</form>';
 
         echo '<a href="' . $_SERVER['SCRIPT_NAME'] . '">Homepage</a>';
+        echo '</div>';
+        echo '</body>';
+        echo '</html>';
     }
 }
 
