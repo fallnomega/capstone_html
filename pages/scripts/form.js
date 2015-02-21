@@ -11,9 +11,9 @@ $(document).ready(function() {
                 required: true,
                 email: true
             },
-            form_company: "required",
-            form_ats: "required",
-            form_tos: "required",
+            companyname: "required",
+            position_title: "required",
+            companydescription: "required",
         },
         
         // Specify the validation error messages

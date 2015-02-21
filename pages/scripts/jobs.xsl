@@ -24,9 +24,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <?php echo "<div style='text-align:right; color:white;'><small>Signed in as: ". $_SESSION['user_name']."</small></div>"; ?>
 <div id='cssmenu'>
 <ul>
-   <li class='active'><a href='../../index.php'><span>Home</span></a></li>
+   <li class='last'><a href='../../index.php'><span>Home</span></a></li>
    <li class='last'><a href='../../post.php'><span>Post a Position</span></a></li>
-   <li><a href='../../jobsposted/.index.php'><span>Jobs Posted</span></a></li>
+   <li class='active'><a href='../../jobsposted/.index.php'><span>Jobs Posted</span></a></li>
    <li><a href='../../jobsposted/responses/candidates.php'><span>Candidate Responses</span></a></li>
 
    <li class='last'><a href='../login.php'><span>Log in</span></a></li>

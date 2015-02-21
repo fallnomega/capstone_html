@@ -32,8 +32,6 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"posted");
-//$sql="SELECT * FROM posted WHERE name = 'fallnomega'";
-//$sql = "SELECT post_date('TIMESTAMP') FROM posted where post_date('TIMESTAMP') = 02) GROUP BY id, month('TIMESTAMP')";
 
 
 $sql="SELECT * FROM posted WHERE MONTH(post_date) = $q";

@@ -52,11 +52,6 @@ if ($conn->connect_error) {
  VALUES ('$name', '$req', '$email', '$position_title', '$companyname',  '$companydescription', '$jobcountry', '$jobstate', '$jobcity', '$jobzip', '$jobtype', '$jobtime', '$compensationtype', '$currency', '$jobskills', '$jobdescription', '$jobbenefits', '$responseurl', '$responseemail', '$keywords', '$boarda', '$boardb', '$boardc')";
 
 
-// $sql = "INSERT INTO posted (name, req, email, position_title, companyname, companydescription, jobcountry, jobstate, jobcity, jobzip, jobtype, jobtime, compensationtype, currency, jobskills)
-// VALUES ('$name', '$req', '$email', '$position_title', '$companyname',  '$companydescription', '$jobcountry', '$jobstate', '$jobcity', '$jobzip', '$jobtype', '$jobtime', '$compensationtype', '$currency', '$jobskills')";
-
-
-
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {

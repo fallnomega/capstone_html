@@ -33,21 +33,21 @@ xmlhttp.onreadystatechange=function()
     y=x.childNodes[0]; 
     req+=y.nodeValue;
     txt+="<b>Requisition Number: </b>" + req + "<hr/>";
-    //document.getElementById("myDiv").innerHTML=req + "<hr/>";
+ 
 
     name="";
     x=xmlDoc.getElementsByTagName("name")[0];
     y=x.childNodes[0]; 
     name+=y.nodeValue;
     txt+="<b>Recruiter Name: </b>" + name + "<hr/>";
-    //document.getElementById("myDiv").innerHTML=  txt;
+
 
     email="";
     x=xmlDoc.getElementsByTagName("email")[0];
     y=x.childNodes[0]; 
     email+=y.nodeValue;
     txt+="<b>Recruiter Email: </b>" + email + "<hr/>";
-    //document.getElementById("myDiv").innerHTML=  txt;
+
 
     position_title="";
     x=xmlDoc.getElementsByTagName("position_title")[0];
@@ -177,20 +177,3 @@ Requisition Number to lookup: <input type="text" id="search"/><br /><button id="
 </body>
 </html>
 
-<!--
-  Company Name  
-  Company Description 
-  Job Country 
-  Job State/Province  
-  Job City  
-  Job Zip/Postal Code 
-  Job Type Classification 
-  Job Time Classification 
-  Compensation Type 
-  Compensation Currency 
-  Job Skills Description  
-  Job Description 
-  Job Benefits Description  
-  Candidate Response URL  
-  Candidate Response Email  
-  -->

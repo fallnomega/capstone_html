@@ -33,9 +33,6 @@ if (!$con) {
 
 mysqli_select_db($con,"posted");
 
-//$sample = $_POST['reqlookup'];
-
-
 $sql = "SELECT * FROM `posted` WHERE req = $q";
 
 

@@ -102,7 +102,7 @@ session_start();
       </tbody>
     </table>
     <form action="../scripts/deleteReq.php" method="post">
-    To delete a job posting, please entere the requisition number: <input type="text" id="deletion" name="deletion"/>   <input type="submit" value="Delete"/>
+    To delete a job posting, please enter the requisition number: <input type="text" id="deletion" name="deletion"/>   <input type="submit" value="Delete"/>
   </form><br/><br/><br/>
   
     <h2><a href='../index.php'>Back to Home page</a></h2>
